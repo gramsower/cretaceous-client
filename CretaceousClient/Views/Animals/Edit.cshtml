@@ -1,0 +1,26 @@
+@{
+  ViewData["Title"] = $"Edit {Model.Name}";
+}
+
+@model CretaceousClient.Models.Animal
+
+<h4>Edit @Model.Name</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(m => m.AnimalId)
+  @Html.LabelFor(m => m.Name)
+  @Html.TextBoxFor(m => m.Name, new { @Value = Model.Name})
+  <br>
+  @Html.LabelFor(m => m.Species)
+  @Html.TextBoxFor(m => m.Species, new { @Value = Model.Species})
+  <br>
+  @Html.LabelFor(m => m.Age)
+  @Html.TextBoxFor(m => m.Age, new { @Value = Model.Age})
+  <br>
+  <br>
+  <input type="submit" value="Edit Animal" class="btn btn-primary" />
+}
+
+<br>
+<p>@Html.ActionLink("Back to Details", "Details", new { id = @Model.AnimalId})</p>
